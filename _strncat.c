@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _strncpy - Concatenates src to dest
+ * _strncat - Concatenates src to dest
  *
  * @dest: String
  * @src: String
@@ -10,19 +10,19 @@
  * Return: dest
  */
 
-char *_strncpy(char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i = 0;
+	int len = 0;
+	int c = 0;
 
-	while (*(src + i) != '\0' && i < n)
-	{
-		*(dest + i) = *(src + i);
-		i++;
-	}
-	while (i < n)
-	{
-		*(dest + i) = '\0';
-		i++;
-	}
+	while (dest[len] != '\0')
+		len++;
+
+	while (src[c] != '\0' && c < n)
+		dest[len++] = src[c++];
+
+	dest[len++] = '\0';
+
 	return (dest);
 }
+
